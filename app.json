@@ -13,11 +13,12 @@
     "list": [{
       "pagePath": "pages/index/index",
       "text": "收集"
-    },{
+    }, {
       "pagePath": "pages/my/index",
       "text": "我的"
     }]
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
 }

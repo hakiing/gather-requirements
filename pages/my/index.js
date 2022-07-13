@@ -1,18 +1,42 @@
 // pages/my/index.js
+import httpRequest from '../../service/index'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    topMVs: [],
+    hasMore: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    this.getTopMVData(0)
+  },
 
+  // 自定义方法
+  async getTopMVData(offset) {
+    if (this.data.hasMore || offset === 0) {
+      wx.showNavigationBarLoading()
+      const result = await httpRequest.get('/top/mv', {
+        offset: offset,
+        limit: 10
+      })
+      console.log(result)
+      if (result.code === 200) {
+        this.setData({
+          topMVs: offset === 0 ? result.data : this.data.topMVs.concat(result.data)
+        })
+        this.setData({
+          hasMore: result.hasMore
+        })
+      }
+      wx.hideNavigationBarLoading()
+    }
   },
 
   /**
@@ -47,14 +71,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
-
+    this.getTopMVData(0)
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-
+    this.getTopMVData(this.data.topMVs.length)
   },
 
   /**
