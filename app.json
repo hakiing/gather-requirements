@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/my/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "广告投放需求收集",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "收集"
+    },{
+      "pagePath": "pages/my/index",
+      "text": "我的"
+    }]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

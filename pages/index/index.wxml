@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+  {{message}}
+</view>
+
+<block wx:for="{{movies}}" wx:key="*this">
+<view>{{item}}</view>
+</block>
+
+<view>
+当前计数：{{counter}}
+</view>
+<button size="mini" bind:tap='handlerAdd'>+1</button>
+<button size="mini" bind:tap="handlerDec">-1</button>

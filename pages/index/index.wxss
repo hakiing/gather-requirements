@@ -1,0 +1,5 @@
+/**index.wxss**/
+.container {
+  color: blue;
+  font-size: 40rpx;
+}
