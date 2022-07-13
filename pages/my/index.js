@@ -36,6 +36,9 @@ Page({
         })
       }
       wx.hideNavigationBarLoading()
+      if (offset === 0) {
+        wx.stopPullDownRefresh()
+      }
     }
   },
 
